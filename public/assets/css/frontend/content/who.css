@@ -46,7 +46,8 @@
 .who__button {
   font-family: "Balsamiq Sans", cursive;
   padding: 15px 20px;
-  display: block;
+  display: inline-block;
+
   width: -webkit-fit-content;
   width: fit-content;
   font-weight: bold;

@@ -22,7 +22,10 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence(3, true),
+            'image' => $this->faker->imageUrl(1024, 640, 'nature'),
+            'description' => $this->faker->text,
+            'content' => $this->faker->randomHtml(5, 3),
         ];
     }
 }

@@ -1,14 +1,13 @@
-@extends('layouts.auth')
+@extends('layouts.auth.index')
 
 @section('page-styles')
-    <link rel="stylesheet" href="{{asset('assets/css/content/login.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/auth/login.css')}}">
 
 @endsection
 
 @section('content')
     <section class="login">
         <div class="container">
-            {{-- @include('errors') --}}
             <div class="login__row">
                 <div class="login__card">
                     <div class="login__image">

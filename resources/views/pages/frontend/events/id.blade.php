@@ -1,11 +1,11 @@
-@extends('layouts.default')
+@extends('layouts.frontend.index')
 
 @section('seo')
     <title>{{ $event->title }} · Grüne Schule</title>
     <meta hid="description" name="description" content="{{ $event->description }}">
 @endsection
 @section('page-styles')
-    <link rel="stylesheet" href="/assets/css/content/event.css">
+    <link rel="stylesheet" href="/assets/css/frontend/content/event.css">
 @endsection
 
 @section('content')

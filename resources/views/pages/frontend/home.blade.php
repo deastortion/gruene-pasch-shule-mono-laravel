@@ -1,13 +1,13 @@
-@extends('layouts.default')
+@extends('layouts.frontend.index')
 
 @section('seo')
     <title>Grüne Schule · Tasckent, Usbekistan</title>
     <meta hid="description" name="description" content="This is a eco-friendly project called Grüne Schule">
 @endsection
 @section('page-styles')
-    <link rel="stylesheet" href="/assets/css/content/hero.css">
-    <link rel="stylesheet" href="/assets/css/content/who.css">
-    <link rel="stylesheet" href="/assets/css/content/last-events.css">
+    <link rel="stylesheet" href="/assets/css/frontend/content/hero.css">
+    <link rel="stylesheet" href="/assets/css/frontend/content/who.css">
+    <link rel="stylesheet" href="/assets/css/frontend/content/last-events.css">
 @endsection
 @section('content')
     <section class="hero" id="hero">
@@ -79,7 +79,7 @@
                 <div class="achvs__row">
                     <div class="achv">
                         <div class="achv__image">
-                            <img src="/assets/img/icons/plant.svg" alt="">
+                            <img loading=lazy src="/assets/img/icons/plant.svg" alt="">
                         </div>
                         <div class="achv__body">
                             <div class="achv__number">
@@ -93,7 +93,7 @@
 
                     <div class="achv">
                         <div class="achv__image">
-                            <img src="/assets/img/icons/bottle.svg" alt="">
+                            <img loading=lazy src="/assets/img/icons/bottle.svg" alt="">
                         </div>
                         <div class="achv__body">
                             <div class="achv__number">
@@ -107,7 +107,7 @@
 
                     <div class="achv">
                         <div class="achv__image">
-                            <img src="/assets/img/icons/refresh.svg" alt="">
+                            <img loading=lazy src="/assets/img/icons/refresh.svg" alt="">
                         </div>
                         <div class="achv__body">
                             <div class="achv__number">
@@ -154,40 +154,45 @@
                     Wanna get to know us better? Check out our events
                 </p>
                 <div class="last-events__row">
-                    <div class="last-event__wrapper">
-                        <div class="last-event">
-                            <div class="last-event__image">
-                                <img src="/assets/img/eco-fest.jpg" alt="">
-                            </div>
-                            <div class="last-event__body">
-                                <div class="last-event__title">
-                                    Eco-fest is open now!
+                    @if (count($events))
+                        @foreach ($events as $event)
+                            <div class="last-event__wrapper">
+                                <div class="last-event">
+                                    <div class="last-event__image">
+                                        <img src="/assets/img/eco-fest.jpg" alt="">
+                                    </div>
+                                    <div class="last-event__body">
+                                        <div class="last-event__title">
+                                            {{$event->title}}
+                                        </div>
+                                        <div class="last-event__details">
+                                            <div class="last-event__date">
+                                                <img src="/assets/img/icons/clock.svg" alt="clock">
+                                                {{$event->created_at->format('Y-m-d')}}
+                                            </div>
+                                            <span>|</span>
+                                            <div class="last-event__author">
+                                                <img src="/assets/img/icons/user.svg" alt="user">
+                                                Admin
+                                            </div>
+                                            <div class="last-event__comments">
+                                                <img src="/assets/img/icons/speech-bubble.svg" alt="comments">
+                                                0
+                                            </div>
+                                        </div>
+                                        <p class="last-event__description">
+                                            {{$event->description}}
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, voluptate?
+                                        </p>
+                                        <a href="#" class="last-event__button">
+                                            Take a look!
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="last-event__details">
-                                    <div class="last-event__date">
-                                        <img src="/assets/img/icons/clock.svg" alt="clock">
-                                        Aug 19, 2020
-                                    </div>
-                                    <span>|</span>
-                                    <div class="last-event__author">
-                                        <img src="/assets/img/icons/user.svg" alt="user">
-                                        Admin
-                                    </div>
-                                    <div class="last-event__comments">
-                                        <img src="/assets/img/icons/speech-bubble.svg" alt="comments">
-                                        0
-                                    </div>
-                                </div>
-                                <p class="last-event__description">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, voluptate?
-                                </p>
-                                <a href="#" class="last-event__button">
-                                    Take a look!
-                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="last-event__wrapper">
+                        @endforeach
+                    @endif
+                    {{-- <div class="last-event__wrapper">
                         <div class="last-event">
                             <div class="last-event__image">
                                 <img src="/assets/img/eco-holiday.jpg" alt="">
@@ -255,7 +260,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

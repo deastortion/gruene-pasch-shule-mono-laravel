@@ -81,6 +81,11 @@ h1, h2, h3, h4, h5, h6 {
   --fontColor: #c0f492;
   --preFooterColor: #027e59;
   --footerColor: #083d2d;
+  --first-color: rgb(32, 182, 117);
+  --first-color-light: rgb(152, 233, 179);
+  --white-color: #f7f6fb;
+  --text-grey: #8390a2;
+  --shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 html {

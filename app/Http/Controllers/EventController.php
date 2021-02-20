@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+    // Constructor with some middlewares
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,29 +19,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::paginate(6, ['id', 'title', 'description', 'image']);
-        return view('events.index', ['events' => $events]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $events = Event::paginate(8, ['id', 'title', 'description', 'image'])->onEachSide(1);
+        return view('pages.frontend.events.index', ['events' => $events]);
     }
 
     /**
@@ -47,40 +31,8 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Event $event)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Event $event)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Event $event)
-    {
-        //
-    }
+   
 }

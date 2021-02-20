@@ -45,13 +45,13 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         // Define auth views here ...
-        Fortify::loginView(fn () => view('auth.login'));
-        Fortify::registerView(fn () => view('auth.register'));
+        Fortify::loginView(fn () => view('pages.auth.login'));
+        Fortify::registerView(fn () => view('pages.auth.register'));
         Fortify::requestPasswordResetLinkView(function () {
-            return view('auth.forgot-password');
+            return view('pages.auth.forgot-password');
         });
         Fortify::resetPasswordView(function ($request) {
-            return view('auth.reset-password', ['request' => $request]);
+            return view('pages.auth.reset-password', ['request' => $request]);
         });
     }
 }

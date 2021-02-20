@@ -39,13 +39,18 @@
   color: rgba(255, 255, 255, 0.808);
 }
 
+.hero__text span {
+  color: var(--secondaryColor);
+  font-weight: bold;
+  text-shadow: 0 1px 5px rgba(58, 58, 58, 0.575);
+}
 .hero__button {
   position: relative;
   top: 0;
   font-family: "Balsamiq Sans", cursive;
   text-transform: uppercase;
   background-color: transparent;
-  display: block;
+  display: inline-block;
   width: -webkit-fit-content;
   width: fit-content;
   color: white;
