@@ -94,6 +94,8 @@ td, th {
     box-shadow: var(--shadow);
     border-radius: 5px;
     border: 1px solid #edf2f9;
+
+    align-self: flex-start;
 }
 
 .card__header {
@@ -193,4 +195,20 @@ td, th {
     .recent {
         grid-template-columns: 1.9fr 1.1fr;
     }
+}
+
+a {
+    color: inherit;
+}
+
+.event, .user {
+    transition: color .1s ease;
+}
+
+.event:hover, .user:hover {
+    color: var(--first-color) !important;
+}
+
+img {
+    max-width: 100% !important;
 }

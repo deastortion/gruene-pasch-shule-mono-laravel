@@ -17,9 +17,17 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::paginate(8, ['id', 'title', 'description', 'image'])->onEachSide(1);
+        // dd($request);
+        $query = $request->search;
+        // dd('asd');
+        if (!empty($query)) {
+            $events = Event::where('title', 'LIKE', '%' . $query . '%')->paginate(8);
+        } else {
+            $events = Event::paginate(8, ['id', 'title', 'description', 'image', 'created_at'])->onEachSide(1);
+        }
+        
         return view('pages.frontend.events.index', ['events' => $events]);
     }
 
@@ -31,7 +39,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        
+        return view('pages.frontend.events.id', ['event' => $event]);
     }
 
    

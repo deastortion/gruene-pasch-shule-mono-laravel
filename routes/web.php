@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-
+Route::get('/languages/change', [HomeController::class, 'changeLanguage']);
 
 Route::resource('events', EventController::class)->only(['index', 'show']);
 

@@ -10,19 +10,19 @@
 
                 <a href="/dashboard" class="nav__link {{ request()->is('dashboard') ? 'active' : ''}}">
                     <span class="las la-igloo nav__icon"></span>
-                    <span class="nav__name ">Dashboard</span>
+                    <span class="nav__name ">@lang('dashboard.sidebar.dashboard')</span>
 
                 </a>
 
                 <a href="/dashboard/events" class="nav__link {{ request()->is('dashboard/events') ? 'active' : ''}}">
                     <span class='las la-clipboard-list nav__icon'></span>
-                    <span class="nav__name">Events</span>
+                    <span class="nav__name">@lang('dashboard.sidebar.events')</span>
 
                 </a>
 
                 <a href="/dashboard/users" class="nav__link {{ request()->is('dashboard/users') ? 'active' : ''}}">
                     <span class="las la-users nav__icon"></span>
-                    <span class="nav__name">Users</span>
+                    <span class="nav__name">@lang('dashboard.sidebar.users')</span>
 
                 </a>
             </div>
@@ -32,7 +32,7 @@
         <a href="#" class="nav__link" onclick="document.getElementById('logout').submit();">
             <span class="las la-door-open nav__icon"></span>
             <span class="nav__name">
-                Logout
+                @lang('dashboard.sidebar.logout')
             </span>
         </a>
 

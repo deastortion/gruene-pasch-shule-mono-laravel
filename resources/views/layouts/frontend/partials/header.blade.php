@@ -14,19 +14,21 @@
                 <ul class="header__links">
                     <li class="header__link {{ request()->is('/') ? 'active' : '' }}">
                         <a href="/">
-                            Home
+                            @lang('header.navigation_links.home')
                         </a>
                     </li>
                     <li class="header__link {{ request()->is('events') ? 'active' : '' }}">
                         <a href="/events">
-                            Events
+                            @lang('header.navigation_links.events')
+
                         </a>
                     </li>
                     @auth
                         @if (Auth::user()->is_admin)
                             <li class="header__link {{ request()->is('dashboard') ? 'active' : '' }}">
                                 <a href="/dashboard">
-                                    Dashboard
+                                    @lang('header.navigation_links.dashboard')
+
                                 </a>
                             </li>
 
@@ -35,7 +37,8 @@
                         <li class="header__link">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Logout
+                                @lang('header.navigation_links.logout')
+
                             </a>
                         </li>
                         <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none">
@@ -44,12 +47,14 @@
                     @else
                         <li class="header__link">
                             <a href="/login">
-                                Login
+                                @lang('header.navigation_links.login')
+
                             </a>
                         </li>
                         <li class="header__link">
                             <a href="/register">
-                                Register
+                                @lang('header.navigation_links.register')
+                                
                             </a>
                         </li>
                     @endauth

@@ -21,11 +21,12 @@
                     </div>
                     <div class="hero__body">
                         <h1 class="hero__title">
-                            Events
+                            @lang('events.title')
                         </h1>
                         <p class="hero__text">
-                            Here is the list of latest <span>events</span>! You'd better check every post here out. Good
-                            luck! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, voluptates.
+                            @lang('events.subtitle')
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus harum ea nemo, excepturi
+                            iusto voluptates.
                         </p>
                     </div>
                 </div>
@@ -38,20 +39,23 @@
 
     <div class="events">
         <div class="search__card2">
-            <form class="search__wrapper">
+            <form class="search__wrapper" method="GET">
                 <span class="search__icon las la-search"></span>
-                <input class="search__input" type="search" name="search" id="search" placeholder="Search for events ...">
-                <input class="search__submit" type="submit" value="Search">
+                <input class="search__input" type="search" name="search" id="search" placeholder="@lang('events.search.placeholder')"
+                    autocomplete="off" required value="{{ app('request')->input('search') }}">
+                <input class="search__submit" type="submit" value="@lang('events.search.button')">
             </form>
         </div>
         <div class="events__wrapper">
             <div class="container">
                 @if (count($events) > 0)
-                    {{$events->links()}}
+                    {{ $events->links() }}
                     <div class="events__body">
 
                         @foreach ($events as $event)
+
                             <div class="event">
+
                                 <div class="event__image">
                                     <img src="{{ $event->image }}" alt="">
                                 </div>
@@ -59,17 +63,26 @@
                                     <h4 class="event__title">
                                         {{ $event->title }}
                                     </h4>
+                                    <div class="event__details">
+                                        <div class="event__created-at">
+                                            <span class="las la-clock"></span>
+                                            <span>{{$event->created_at->format('Y-m-d')}}</span>
+                                        </div>
+                                    </div>
                                     <p class="event__description">
                                         {{ $event->description }}
                                     </p>
+                                    <a href="{{ '/events/' . $event->id }}" class="event__btn">@lang('events.button')</a>
                                 </div>
+
                             </div>
+
                         @endforeach
 
                     </div>
                 @else
                     <h2 class="events__message">
-                        There is no events yet!
+                        @lang('events.no-events')
                     </h2>
                 @endif
 

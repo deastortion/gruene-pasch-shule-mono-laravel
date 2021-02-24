@@ -17,7 +17,8 @@
                     <div class="hero__body">
                         <h1 style="display: none;">Grüne Schule</h1>
                         <h2 class="hero__title">
-                            Hey, this is a project called <span>Grune Schule</span>
+                            {{-- Hey, this is a project called <span>Grune Schule</span> --}}
+                            @lang('hero.title')
                         </h2>
                         <p class="hero__text">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione numquam odit
@@ -25,7 +26,8 @@
                             nostrum natus ad, laboriosam suscipit dolorum unde.
                         </p>
                         <a href="#who" class="hero__button">
-                            Okay, let's go
+                            {{-- Okay, let's go --}}
+                            @lang('hero.button')
                         </a>
                     </div>
                     <div class="hero__image">
@@ -51,7 +53,8 @@
                     </div>
                     <div class="who__body">
                         <h2 class="who__title title">
-                            Who are we?
+                            {{-- Who are we? --}}
+                            @lang('who.title')
                         </h2>
                         <p class="who__text">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim iure, tempore natus
@@ -65,7 +68,8 @@
                             nobis numquam alias doloribus tempora ullam!
                         </p>
                         <a href="#last-events" class="who__button">
-                            Next
+                            {{-- Next --}}
+                            @lang('who.button')
                         </a>
                     </div>
                 </div>
@@ -74,7 +78,8 @@
         <section class="achvs">
             <div class="mini-container">
                 <h2 class="achvs__title title">
-                    Our achievements
+                    {{-- Our achievements --}}
+                    @lang('achvs.title')
                 </h2>
                 <div class="achvs__row">
                     <div class="achv">
@@ -148,10 +153,10 @@
         <div class="last-events__wrapper">
             <div class="container">
                 <h2 class="last-events__title title">
-                    Latest events
+                    @lang('latest-events.title')
                 </h2>
                 <p class="last-events__subtitle">
-                    Wanna get to know us better? Check out our events
+                    @lang('latest-events.subtitle')
                 </p>
                 <div class="last-events__row">
                     @if (count($events))
@@ -159,7 +164,7 @@
                             <div class="last-event__wrapper">
                                 <div class="last-event">
                                     <div class="last-event__image">
-                                        <img src="/assets/img/eco-fest.jpg" alt="">
+                                        <img src="{{$event->image}}" alt="">
                                     </div>
                                     <div class="last-event__body">
                                         <div class="last-event__title">
@@ -182,85 +187,15 @@
                                         </div>
                                         <p class="last-event__description">
                                             {{$event->description}}
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, voluptate?
                                         </p>
-                                        <a href="#" class="last-event__button">
-                                            Take a look!
+                                        <a href="/events/{{$event->id}}" class="last-event__button">
+                                            @lang('latest-events.button')
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     @endif
-                    {{-- <div class="last-event__wrapper">
-                        <div class="last-event">
-                            <div class="last-event__image">
-                                <img src="/assets/img/eco-holiday.jpg" alt="">
-                            </div>
-                            <div class="last-event__body">
-                                <div class="last-event__title">
-                                    Happy eco-holidays!
-                                </div>
-                                <div class="last-event__details">
-                                    <div class="last-event__date">
-                                        <img src="/assets/img/icons/clock.svg" alt="clock">
-                                        Aug 19, 2020
-                                    </div>
-                                    <span>|</span>
-                                    <div class="last-event__author">
-                                        <img src="/assets/img/icons/user.svg" alt="user">
-                                        Admin
-                                    </div>
-                                    <div class="last-event__comments">
-                                        <img src="/assets/img/icons/speech-bubble.svg" alt="comments">
-                                        0
-                                    </div>
-                                </div>
-                                <p class="last-event__description">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae reprehenderit
-                                    animi soluta voluptatem quaerat quod, quibusdam dolor? Eligendi, excepturi
-                                    animi! Officiis expedita veniam incidunt deserunt aliquam repellat quis
-                                    deleniti sunt!
-                                </p>
-                                <a href="#" class="last-event__button">
-                                    Take a look!
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="last-event__wrapper">
-                        <div class="last-event">
-                            <div class="last-event__image">
-                                <img src="/assets/img/eco-rock.jpg" alt="">
-                            </div>
-                            <div class="last-event__body">
-                                <div class="last-event__title">
-                                    Eco-rock-n-roll!
-                                </div>
-                                <div class="last-event__details">
-                                    <div class="last-event__date">
-                                        <img src="/assets/img/icons/clock.svg" alt="clock">
-                                        Aug 19, 2020
-                                    </div>
-                                    <span>|</span>
-                                    <div class="last-event__author">
-                                        <img src="/assets/img/icons/user.svg" alt="user">
-                                        Admin
-                                    </div>
-                                    <div class="last-event__comments">
-                                        <img src="/assets/img/icons/speech-bubble.svg" alt="comments">
-                                        0
-                                    </div>
-                                </div>
-                                <p class="last-event__description">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, voluptate?
-                                </p>
-                                <a href="#" class="last-event__button">
-                                    Take a look!
-                                </a>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@ showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header');
 
 var selected = [];
 var form = document.getElementById('delete');
-var selectHTML = document.getElementById('selected');
+var selectHTML = document.getElementById('selected-number');
 
 const checkboxes = document.querySelectorAll('.checkbox');
 const checkboxAll = document.getElementById('checkbox-all');
@@ -81,13 +81,13 @@ if (checkboxAll) {
 
 
 function editHTML() {
-    selectHTML.innerText = `Selected: ${selected.length}`;
+    selectHTML.innerText = selected.length;
 }
 
 
-function sendRequest() {
+function sendRequest(resource) {
     if (selected.length > 0) {
-        form.action = `/dashboard/users/${selected}`;
+        form.action = `/dashboard/${resource}/${selected}`;
         console.log(form.action);
         form.submit();
     }
@@ -95,6 +95,24 @@ function sendRequest() {
 
 
 
+var pageForm = document.getElementById('pageForm');
+var pageInput = document.getElementById('pageInput');
+
+function pageFormSubmit(resource) {
+    let page = pageInput.value;
+    pageForm.action = `/dashboard/${resource}?page=${page}`;
+}
+
+
+
+// document.getElementById('checkbox-' + {{ $event->id }}).click(); this.classList.toggle('selected');
+
+
+// let rows = document.querySelectorAll('.tr');
+
+// rows.forEach(row => row.addEventListener('click', function(event) {
+
+// }));
 
 
 // ==== LINK ACTIVE ====
@@ -108,3 +126,5 @@ function sendRequest() {
 // }
 
 // linkColor.forEach(l => l.addEventListener('click', colorLink));
+
+

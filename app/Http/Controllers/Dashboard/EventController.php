@@ -3,21 +3,31 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Event;
+use App\Http\Requests\EventCreateRequest;
+use App\Http\Requests\EventUpdateRequest;
+use App\Repositories\Interfaces\EventRepositoryInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 
 class EventController extends Controller
 {
+
+    protected $repository;
+
+    public function __construct(EventRepositoryInterface $eventRepository)
+    {
+        $this->repository = $eventRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::paginate(8);
+        $events = $this->repository->all($request->search);
+
         return view('pages.backend.events.index', ['events' => $events]);
     }
 
@@ -37,19 +47,10 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventCreateRequest $validatedRequest)
     {
-
-        $validated = $request->validate([
-            'title' => 'required|max:255',
-            'content' => 'required',
-            'description' => 'required|max:255',
-        ]);
-
-        $event = new Event;
-        $event->title = $validated['title'];
-        $event->content = $validated['content'];
-        $event->save();
+        // return $validatedRequest;
+        $this->repository->create($validatedRequest);
 
 
         return redirect('/dashboard/events');
@@ -61,8 +62,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($eventId)
     {
+        $event = $this->repository->getById($eventId);
         return view('pages.backend.events.id', ['event' => $event]);
     }
 
@@ -72,8 +74,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($eventId)
     {
+        $event = $this->repository->getById($eventId);
+
         return view('pages.backend.events.edit', ['event' => $event]);
     }
 
@@ -84,24 +88,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(EventUpdateRequest $validatedRequest, $eventId)
     {
-        // dd($request);
-        $validated = $request->validate([
-            'title' => 'required|max:255',
-            'content' => 'required',
-            'description' => 'required|max:255',
-            // 'image' => 'required|file|max:512',
-        ]);
 
-        $event->title = $validated['title'];
-        $event->description = $validated['description'];
-        $event->content = $validated['content'];
-        $event->update();
-
-        Session::flash('flash_message', 'Task successfully added!');
-
-        // return redirect('/dashboard/events');
+        $this->repository->update($validatedRequest, $eventId);
+        
         return redirect()->back();
     }
 
@@ -113,15 +104,8 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
-        Event::where('post_id',$id)->delete();
+        $this->repository->delete($id);
+
         return redirect()->back();
     }
-    public function multiDelete(Request $request)
-    {
-        dd($request);
-        Event::where('post_id',$request->ids)->delete();
-        return redirect('dashboard/users');
-    }
-    
 }

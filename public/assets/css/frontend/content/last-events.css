@@ -12,7 +12,11 @@
 }
 
 .last-events__subtitle {
-  color: #818181;
+  color: rgba(112, 112, 112, 0.7);
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.1), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+
+  font-weight: 600;
+
   margin-bottom: 30px;
   text-align: center;
   letter-spacing: 1px;
@@ -30,7 +34,8 @@
 .last-event {
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  /* box-shadow: var(--shadow); */
+  box-shadow: 0 2.8px 2.2px rgba(9, 99, 47, 0.034), 0 6.7px 5.3px rgba(22, 128, 87, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(19, 148, 92, 0.072), 0 41.8px 33.4px rgba(21, 161, 108, 0.086), 0 100px 80px rgba(32, 161, 123, 0.02);
 }
 
 .last-event__image {

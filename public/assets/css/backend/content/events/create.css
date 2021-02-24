@@ -70,3 +70,8 @@ input[type=submit] {
     font-size: 0.8rem;
     letter-spacing: 1px;
 }
+
+
+.input img {
+    max-width: 100%;
+}

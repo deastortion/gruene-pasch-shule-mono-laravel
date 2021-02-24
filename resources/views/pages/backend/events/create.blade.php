@@ -2,6 +2,7 @@
 
 @section('unique-styles')
     <link rel="stylesheet" href="{{ asset('assets/css/backend/content/events/create.css') }}">
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 @endsection
 {{-- <span class="las la-plus-square"></span> --}}
 
@@ -12,7 +13,7 @@
         </div>
         <div class="card__body">
 
-            <form action="{{ url('dashboard/events') }}" method="POST">
+            <form action="{{ url('dashboard/events') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="input">
                     <label for="title">Title</label>
@@ -30,18 +31,18 @@
                 </div>
                 <div class="input">
                     <label for="content">Content</label>
-                    <textarea name="content" id="content" cols="30" rows="10" class="@error('content') is-invalid @enderror"></textarea>
+                    <textarea name="content" id="content" cols="30" rows="10" class="@error('content') is-invalid @enderror ckeditor "></textarea>
                     @error('content')
                         <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- <div class="input">
-                    <label for="content">Image</label>
+                <div class="input">
+                    <label for="image">Image</label>
                     <input type="file" name="image" id="image" class="@error('image') is-invalid @enderror">
                     @error('image')
                         <div class="error">{{ $message }}</div>
                     @enderror
-                </div> --}}
+                </div>
                 <div class="settings">
                     <input type="submit" value="Create">
                     <div class="data">
