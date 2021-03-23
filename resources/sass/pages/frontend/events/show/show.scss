@@ -1,0 +1,188 @@
+@import '../../../../app.scss';
+
+
+
+.event {
+    padding: 4rem 0;
+    background-color: #d9fcdd;
+}
+
+/* ==== CARD ==== */
+.card {
+    box-shadow: $shadow;
+    background: white;
+    overflow: hidden;
+    border-radius: 5px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card__title {
+    text-align: center;
+}
+
+.card__description {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: .75rem;
+    max-width: 600px;
+    color: $text-grey;
+}
+
+.card__header {
+    padding: 2rem 2rem 0 2rem;
+}
+
+.card__body {
+    padding: 2rem;
+    color: rgb(90, 103, 129) !important;
+
+
+    h2 {
+        font-weight: normal;
+        font-size: 1.25rem;
+    }
+
+    h3:not(:first-child) {
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-top: -10px;
+    }
+
+
+    p {
+        margin-block: .85em;
+        font-size: 1.15rem;
+    }
+}
+
+
+.card__footer {
+    padding: 1rem 2rem;
+    color: $text-grey;
+    display: flex;
+    justify-content: space-between;
+    background-color: $white-color;
+}
+
+img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+ul,
+ol {
+    margin: .5rem 0 .5rem 1.5rem;
+}
+
+a {
+    color: rgb(55, 172, 127);
+}
+
+.event>* {
+    line-height: 1.6;
+    font-family: 'Balsamiq Sans';
+}
+
+.event h1 {
+    margin-top: 1rem;
+    line-height: 1;
+}
+
+.event .card__content {
+    margin-top: 1rem;
+}
+
+.comments {
+    padding: 4rem 0;
+    background-color: #d9fcdd;
+}
+
+.comment {
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+}
+
+.comment__user {
+    text-align: center;
+    max-width: 60px;
+}
+
+.comment__avatar {
+    overflow: hidden;
+    width: 60px;
+}
+
+.comment__name {
+    font-size: .9rem;
+    font-weight: bold;
+    word-wrap: break-word;
+    color: $text-grey;
+}
+
+.comment__date {
+    font-size: .8rem;
+    font-weight: bold;
+    color: $text-grey;
+    margin-top: .25rem;
+}
+
+.comment__user img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: .5rem;
+}
+
+.comment__body {
+    width: 100%;
+    margin-left: 1rem;
+}
+
+.comment__content {
+    width: 100%;
+    border-radius: 5px;
+    background-color: $white-color;
+    padding: 1rem;
+    height: 100%;
+    font-size: .9rem;
+    line-height: 1.4;
+    color: $text-grey;
+}
+
+.comments__comment-add {
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.comments__comment-add textarea {
+    resize: none;
+    width: 100%;
+    padding: 1rem;
+    background-color: $white-color;
+    color: $text-grey;
+}
+
+.comments__comment-add input[type=submit] {
+    cursor: pointer;
+    margin-top: 0.5rem;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    background-color: $primaryColor;
+    color: $white-color;
+}
+
+@media (max-width:425px) {
+
+    .event .container,
+    .comments .container {
+        padding: 1rem;
+    }
+
+    .event {
+        padding: 0;
+    }
+}

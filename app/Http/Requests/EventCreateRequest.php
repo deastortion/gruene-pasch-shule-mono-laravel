@@ -24,10 +24,10 @@ class EventCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255|min:5',
+            'title' => 'required|max:155|min:5',
             'content' => 'required',
             'description' => 'required|max:255|min:15',
-            'image' => 'required|image|max:512',
+            'image' => 'required|image|max:256',
         ];
     }
 }

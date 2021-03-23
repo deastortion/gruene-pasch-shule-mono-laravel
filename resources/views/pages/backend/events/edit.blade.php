@@ -1,11 +1,9 @@
 @extends('layouts.backend.index')
 
 @section('unique-styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/backend/content/events/create.css') }}">
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/backend/events/create.css') }}">
 
 @endsection
-{{-- <span class="las la-plus-square"></span> --}}
 
 @section('content')
     <div class="card">
@@ -73,4 +71,12 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('content');
+
+    </script>
 @endsection

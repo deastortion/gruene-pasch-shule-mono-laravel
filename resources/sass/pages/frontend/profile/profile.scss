@@ -1,0 +1,129 @@
+@import '../../../app.scss';
+
+.content {
+    background: linear-gradient(90deg, #00a976 0%, #0bbe88 60%, #21dfa6 100%);
+}
+
+.profile {
+    padding: 2rem 0;
+}
+
+.profile .container {
+    max-width: 600px;
+}
+
+.profile__card {
+    border-radius: 5px;
+
+    background: white;
+    padding: 1.25rem;
+    display: flex;
+
+    position: relative;
+
+    box-shadow: $shadow;
+
+}
+
+.profile__card>*+* {
+    margin-top: .5rem;
+}
+
+.profile__card form {
+    display: flex;
+    flex-direction: column
+}
+
+.profile__card form>*+* {
+    margin-top: 1rem;
+}
+
+.profile__card input,
+.profile__card textarea {
+    padding: .75rem 1rem;
+    width: 100%;
+    border-radius: 5px;
+    background-color: $white-color;
+    border: 1px solid $text-grey;
+    color: $text-grey;
+
+    resize: none;
+}
+
+.profile__title {
+    font-family: "Balsamiq Sans", cursive;
+    font-size: 2.5em;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0px 4px 3px rgb(0 0 0 / 30%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+    margin-bottom: 1rem;
+}
+
+
+.profile__submit {
+    background-color: $primaryColor !important;
+    color: white !important;
+    font-size: 1rem !important;
+}
+
+
+.profile__form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__form-group>*+* {
+    margin-top: .25rem;
+}
+
+.profile__form-group label {
+    font-size: 1rem;
+    color: rgb(89, 133, 108);
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+
+
+
+
+.profile__header {
+    display: flex;
+    align-items: center;
+}
+
+.profile__image {
+    overflow: hidden;
+
+    flex: 0 0 125px;
+}
+
+.profile__image img {
+    border: 2px solid $text-grey;
+
+    box-shadow: $shadow;
+
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.profile__group {
+    flex: 1 1 100%;
+    margin-left: 1.25rem;
+}
+
+.profile__group>*+* {
+    margin-top: 1rem;
+}
+
+
+.profile__body > * + * {
+    margin-top: 1rem;
+}
+
+
+h2 {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: rgb(89, 133, 108);
+}

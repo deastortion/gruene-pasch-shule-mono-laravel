@@ -31,9 +31,12 @@
 
                                 </a>
                             </li>
-
                         @endif
-
+                        <li class="header__link {{ request()->is('profile') ? 'active' : '' }}">
+                            <a href="/profile">
+                                @lang('header.navigation_links.profile')
+                            </a>
+                        </li>
                         <li class="header__link">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -54,7 +57,7 @@
                         <li class="header__link">
                             <a href="/register">
                                 @lang('header.navigation_links.register')
-                                
+
                             </a>
                         </li>
                     @endauth

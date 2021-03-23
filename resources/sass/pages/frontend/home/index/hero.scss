@@ -1,0 +1,110 @@
+.hero {
+    position: relative;
+}
+
+.hero__wrapper {
+    padding: 50px 0 100px 0;
+    background: linear-gradient(90deg, #00a976 0%, #0bbe88 60%, #21dfa6 100%);
+}
+
+.hero__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero__body {
+    flex: 0 1 40%;
+}
+
+.hero__title {
+    font-family: "Balsamiq Sans", cursive;
+    font-size: 2.5em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+.hero__title span {
+    color: $secondaryColor;
+}
+
+.hero__text {
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.808);
+}
+
+.hero__text span {
+    color: $secondaryColor;
+    font-weight: bold;
+    text-shadow: 0 1px 5px rgba(58, 58, 58, 0.575);
+}
+
+.hero__button {
+    position: relative;
+    top: 0;
+    font-family: "Balsamiq Sans", cursive;
+    text-transform: uppercase;
+    background-color: transparent;
+    display: inline-block;
+    width: -webkit-fit-content;
+    width: fit-content;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 10px 30px;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease-in, top 0.2s ease-in;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.hero__button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    top: -2.5px;
+}
+
+.hero__image {
+    flex: 0 0 400px;
+    max-height: 500px;
+}
+
+.hero__image img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.custom-shape-divider-bottom-1612534826 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1612534826 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 50px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1612534826 .shape-fill {
+    fill: #f5fffb;
+}
+
+@media (max-width: 768px) {
+    .hero__image {
+        display: none;
+    }
+
+    .hero__body {
+        flex: 1 1 auto;
+    }
+}

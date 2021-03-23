@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EventCreateRequest;
 use App\Http\Requests\EventUpdateRequest;
+use App\Models\Event;
 use App\Repositories\Interfaces\EventRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -47,11 +48,12 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EventCreateRequest $validatedRequest)
+    public function store(EventCreateRequest $request)
     {
         // return $validatedRequest;
-        $this->repository->create($validatedRequest);
+        $this->repository->create($request);
 
+        $request->session()->now('alert-success', 'Successfully created an event!');
 
         return redirect('/dashboard/events');
     }
@@ -62,10 +64,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($eventId)
+    public function show(Event $event)
     {
-        $event = $this->repository->getById($eventId);
-        return view('pages.backend.events.id', ['event' => $event]);
+        $event = $this->repository->getById($event);
+        return view('pages.backend.events.show', ['event' => $event]);
     }
 
     /**
@@ -74,9 +76,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($eventId)
+    public function edit(Event $event)
     {
-        $event = $this->repository->getById($eventId);
+        $event = $this->repository->getById($event);
 
         return view('pages.backend.events.edit', ['event' => $event]);
     }
@@ -88,12 +90,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EventUpdateRequest $validatedRequest, $eventId)
+    public function update(EventUpdateRequest $request, Event $event)
     {
+        $this->repository->update($request, $event);
 
-        $this->repository->update($validatedRequest, $eventId);
-        
-        return redirect()->back();
+        return back();
     }
 
     /**
@@ -106,6 +107,6 @@ class EventController extends Controller
     {
         $this->repository->delete($id);
 
-        return redirect()->back();
+        return back();
     }
 }

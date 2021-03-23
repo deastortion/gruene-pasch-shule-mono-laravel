@@ -1,0 +1,62 @@
+/* Footer styles */
+
+.footer {
+    padding: 50px 0;
+    background-color: $footerColor;
+}
+
+.footer__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__text {
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.2;
+}
+
+.footer__text p:not(:first-child) {
+    margin-top: 7px;
+}
+
+.footer__text span {
+    color: $primaryColor;
+    font-size: 1.1em;
+    font-family: "Balsamiq Sans", cursive;
+}
+
+.footer__lang {
+    cursor: pointer;
+    border: 1px solid $primaryColor;
+    border-radius: 50px;
+    padding: .25rem .5rem;
+    background-color: transparent;
+    color: $primaryColor;
+}
+
+.footer__lang.selected {
+    background-color: $primaryColor;
+    color: $footerColor;
+}
+
+.footer__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__col>*:not(:first-child) {
+    padding-top: 2rem;
+}
+
+.languages input {
+    text-transform: uppercase;
+}
+
+.languages input:not(:first-child) {
+    margin-left: .25rem;
+}

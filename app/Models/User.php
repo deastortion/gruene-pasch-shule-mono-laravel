@@ -39,5 +39,14 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean',
     ];
+
+
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id')->latest();
+    }
 }

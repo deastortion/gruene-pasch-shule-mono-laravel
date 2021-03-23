@@ -1,7 +1,7 @@
 @extends('layouts.backend.index')
 
 @section('unique-styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/backend/content/users/show.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/backend/users/show.css') }}">
 @endsection
 
 @section('content')

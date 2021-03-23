@@ -1,2 +1,7 @@
 User-agent: *
 Disallow:
+Allow: /
+Allow: /events
+
+
+Sitemap: https://xn--grne-schule-uhb.uz/sitemap.xml

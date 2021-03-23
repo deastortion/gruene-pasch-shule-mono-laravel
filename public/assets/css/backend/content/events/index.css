@@ -155,8 +155,6 @@ tbody tr {
     font-size: 0.9rem;
 }
 
-
-
 /* ==== RESOURCE FOOTER ==== */
 
 .resource__footer {
@@ -267,4 +265,26 @@ input[type=checkbox] {
 .options {
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+/* ALERTS  */
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    color: var(--white-color);
+    transition: .5s;
+}
+
+.alert-success {
+    background-color: var(--first-color);
+}
+
+.alert-danger {
+    background-color: rgba(236, 40, 72, 0.8);
+}
+
+.alert-warning {
+    background-color: rgba(236, 151, 40, 0.8);
 }

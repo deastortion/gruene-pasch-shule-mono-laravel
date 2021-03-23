@@ -1,0 +1,89 @@
+// ==== HERO =====
+$hero-white: rgba(255, 255, 255, 0.825);
+
+.hero__wrapper {
+    padding: 4rem 0 7rem 0;
+    background: linear-gradient(90deg, #00a976 0%, #0bbe88 60%, #21dfa6 100%);
+}
+
+.hero {
+    position: relative;
+}
+
+.hero__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.hero__title,
+.hero__subtitle {
+    max-width: 65ch;
+    text-align: center;
+}
+
+.hero__title {
+    font-family: "Balsamiq Sans", cursive;
+    font-size: 2.5em;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0px 4px 3px rgb(0 0 0 / 30%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.808);
+}
+
+
+.hero__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    border-radius: 30px;
+
+
+    border: 2px solid $hero-white;
+
+    // font-family: 'Balsamiq Sans';
+}
+
+.hero__input {
+    min-width: 250px;
+    padding: 1rem 0 1rem 2rem;
+    color: $hero-white;
+    background-color: transparent;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+}
+
+.hero__input::placeholder {
+    color: $hero-white;
+}
+
+.hero__submit {
+    display: inline-block;
+    align-self: stretch;
+    padding: 0 1.5rem;
+    color: $hero-white;
+
+    background-color: transparent;
+
+    font-size: 2rem;
+}
+
+@media (max-width: 375px) {
+    .hero__input {
+        min-width: auto;
+    }
+}

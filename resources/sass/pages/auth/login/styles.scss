@@ -1,0 +1,102 @@
+@import '../../../app.scss';
+
+
+.content {
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primaryColor);
+}
+
+.login {
+    padding: 50px 0;
+    flex: 1 1 auto;
+}
+
+.login__card {
+    margin: 0 auto;
+    max-width: 650px;
+    background-color: rgb(250, 250, 250);
+    display: flex;
+    box-shadow: 0 3px 10px rgba(53, 77, 65, 0.3), 
+                0 10px 20px rgba(0, 0, 0, .2);
+}
+.login__image {
+    padding: 25px;
+    background-color: rgb(52, 153, 123);
+    flex: 0 0 300px;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login__image img {
+    max-width: 100%;
+}
+input {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid rgba(31, 102, 75, 0.384);
+}
+.login__form > * + * {
+    margin-bottom: 20px;
+}
+.login__form div:last-child {
+    margin-bottom: 30px !important;
+}
+.login__title {
+    margin-bottom: 25px;
+    text-align: center;
+}
+.login__form {
+    width: 100%;
+    padding: 30px 25px;
+}
+
+.login__submit {
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid rgba(12, 80, 49, 0.2);
+    cursor: pointer;
+    width: fit-content;
+    background-color: var(--primaryColor);
+    color: white;
+    font-family: "Balsamiq Sans", cursive;
+    letter-spacing: 2px;
+}
+
+
+.login__error {
+    transition: letter-spacing .3s ease-in;
+    margin-top: 5px;
+    color: red;
+    font-size: 0.7em;
+    font-family: 'Balsamiq Sans', cursive;
+    letter-spacing: 1px;
+}
+.login .input__invalid {
+    border: 2px solid rgba(255, 0, 0, 0.5);
+}
+.login__form .input__invalid::placeholder {
+    color: rgba(255, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.login__links {
+    margin-top: -5px;
+    font-size: 0.9rem;
+    padding: 0 .5rem;
+    font-family: 'Balsamiq Sans', cursive;
+
+}
+.login__links a {
+    color:  var(--first-color);
+}
+
+@media (max-width:625px) {
+    .login__image {
+        display: none;
+    }
+}

@@ -11,9 +11,6 @@
     flex: 1 1 auto;
 }
 
-.login__row {
-    /* background-color: rgba(255, 0, 0, 0.014); */
-}
 .login__card {
     margin: 0 auto;
     max-width: 650px;
@@ -93,4 +90,10 @@ input {
 }
 .login__links a {
     color:  var(--first-color);
+}
+
+@media (max-width:625px) {
+    .login__image {
+        display: none;
+    }
 }

@@ -14,11 +14,11 @@
                 <div class="languages">
                     <form action="/languages/change" method="GET" id="language">
                         <input type="submit" id="ru" name="lang" value="ru"
-                            class="footer__lang {{ session()->get('locale') == 'ru' ? 'selected' : '' }}">
+                            class="footer__lang {{ session('locale') == 'ru' ? 'selected' : '' }}">
                         <input type="submit" id="en" name="lang" value="en"
-                            class="footer__lang {{ session()->get('locale') == 'en' ? 'selected' : '' }}">
+                            class="footer__lang {{ (session('locale') == 'en' || session('locale') == null) ? 'selected' : '' }}">
                         <input type="submit" id="de" name="lang" value="de"
-                            class="footer__lang {{ session()->get('locale') == 'de' ? 'selected' : '' }}">
+                            class="footer__lang {{ session('locale') == 'de' ? 'selected' : '' }}">
                     </form>
                 </div>
             </div>

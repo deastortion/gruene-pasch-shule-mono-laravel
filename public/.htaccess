@@ -4,7 +4,38 @@
     </IfModule>
 
     RewriteEngine On
-
+    
+    #Removing www in the URL
+    RewriteCond %{HTTP_HOST} ^www.grüne-schule.uz
+    RewriteRule (.*) https://grüne-schule.uz/$1 [R=301,L]
+    
+    # Block access to backup and source files. These files may be left by some
+    # text/html editors and pose a great security danger, when anyone can access
+    # them.
+    <FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
+      Order allow,deny
+      Deny from all
+      Satisfy All
+    </FilesMatch>
+    
+    # Increase cookie security
+    <IfModule mod_php5.c>
+      php_value session.cookie_httponly true
+    </IfModule>
+    
+    #Перенаправляем с http на https
+    RewriteCond %{HTTPS} off         
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]  
+    
+    #Убираем index.php в URL
+    RewriteCond %{THE_REQUEST} ^{A-Z}[3,9]\ /index\.php\ HTTP/
+    RewriteRule ^index\.php$ http://grüne-schule.uz  [R=301,L]
+    #http://vash-site.uz/ 
+    
+    #Этот код убирает "/" в конце адресной строки
+    # RewriteCond %{REQUEST_URI} ^(.+)/$
+    # RewriteRule ^(.+)/$ /$1 [L,R=301]
+    
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -19,3 +50,6 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+RewriteCond %{HTTP_HOST} ^gruene\-schule\.uz$
+RewriteRule ^/?$ "https\:\/\/xn\-\-grne\-schule\-uhb\.uz\/" [R=301,L]
+

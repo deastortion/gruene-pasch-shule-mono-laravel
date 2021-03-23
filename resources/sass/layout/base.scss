@@ -1,0 +1,52 @@
+/* Layout styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 35px;
+    margin: 0 auto;
+}
+
+.content {
+    padding-top: 94px;
+    flex: 1 1 auto;
+}
+
+.title {
+    font-family: "Balsamiq Sans", cursive;
+    font-size: 2em;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #595959;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    body.locked {
+        overflow: hidden;
+    }
+
+    .content {
+        padding: 60px 0 0 0;
+    }
+}

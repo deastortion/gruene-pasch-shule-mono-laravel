@@ -9,59 +9,41 @@ use Illuminate\Support\Facades\Storage;
 
 class EventRepository implements EventRepositoryInterface
 {
-    public function all($query = null, $perPage = 12)
+    public function all($search = null, $perPage = 12)
     {
-
-        if (!empty($query)) {
-            return Event::where('title', 'LIKE', '%' . $query . '%')->paginate($perPage);
+        if (!empty($search)) {
+            return Event::query()
+                ->where('title', 'LIKE', "%{$search}%")
+                ->orWhere('description', 'LIKE', "%{$search}%")
+                ->paginate($perPage);
         } else {
-            return Event::paginate($perPage);
+            return Event::latest()->paginate($perPage);
         }
     }
 
-    public function getById($eventId)
+    public function getById($event)
     {
-        return Event::where('id', $eventId)->firstOrFail();
+        return $event;
     }
 
-    public function create($validatedInput)
+    public function create($input)
     {
 
-        $event = new Event;
+        $event = Event::create($input->only(['title', 'description', 'content']));
 
-        $event->title = $validatedInput->title;
+        $this->handeImage($input->image, $event);
 
-        $event->content = $validatedInput->content;
-
-        $event->description = $validatedInput->description;
-
-        $imageName = 'image' . '_' . time() . '.' . $validatedInput->image->getClientOriginalExtension();
-        $validatedInput->image->storeAs('public/images', $imageName);
-        $event->image = '/storage/images/' . $imageName;
-
-        $event->save();
+        $event->update();
     }
 
-    public function update($validatedInput, $eventId)
+    public function update($input, $event)
     {
 
-        $event = Event::where('id', $eventId)->firstOrFail();
+        $event->update($input->only(['title', 'description', 'content']));
 
-        $event->title = $validatedInput->title;
-
-        $event->description = $validatedInput->description;
-
-        $event->content = $validatedInput->content;
-
-        // dd($validatedInput->image);
-
-        if (!empty($validatedInput->image)) {
-            $eventImage = str_replace('/storage', '', $event->image);
-            Storage::delete('/public' . $eventImage);
-
-            $imageName = 'image' . '_' . time() . '.' . $validatedInput->image->getClientOriginalExtension();
-            $validatedInput->image->storeAs('public/images', $imageName);
-            $event->image = '/storage/images/' . $imageName;
+        if (!empty($input->image)) {
+            $this->deleteImage($event->image);
+            $this->handeImage($input->image, $event);
         }
 
         $event->update();
@@ -72,5 +54,23 @@ class EventRepository implements EventRepositoryInterface
         $ids = explode(",", $eventId);
 
         Event::whereIn('id', $ids)->delete();
+
+        foreach ($ids as $id) {
+            Storage::deleteDirectory('/public/events/' . $id);
+        }
+    }
+
+
+    private function handeImage($image, $event)
+    {
+        $imageName = 'image.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/events/' . $event->id, $imageName);
+        $event->image = '/storage/events/' . $event->id . '/' . $imageName;
+    }
+
+    private function deleteImage($image)
+    {
+        $imagePath = str_replace('/storage', '', $image);
+        Storage::delete('/public' . $imagePath);
     }
 }

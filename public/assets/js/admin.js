@@ -25,29 +25,31 @@ const showNavbar = (toggleId, navId, bodyId, headerId) => {
 
 showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header');
 
+
+
+
+
+
+// ===== RESOURCE CODE =====
 var selected = [];
 var form = document.getElementById('delete');
 var selectHTML = document.getElementById('selected-number');
 
 const checkboxes = document.querySelectorAll('.checkbox');
 const checkboxAll = document.getElementById('checkbox-all');
-console.log(checkboxAll);
-console.log(checkboxes);
 
 
+
+// Check for a checkbox
 if (checkboxes) {
     checkboxes.forEach(checkbox => checkbox.addEventListener('click', function () {
 
         if (checkbox.checked) {
-            console.log('checked');
             selected.push(checkbox.value);
-            console.log(selected);
 
         } else {
-            console.log('unchecked');
             let index = selected.indexOf(checkbox.value);
             selected.splice(index, 1);
-            console.log(selected);
 
         }
 
@@ -56,13 +58,13 @@ if (checkboxes) {
     }));
 }
 
+
+// Check for the checkbox which selects all checkboxes
 if (checkboxAll) {
     checkboxAll.addEventListener('click', function () {
         if (checkboxAll.checked) {
-            console.log('asd');
 
             checkboxes.forEach((checkbox) => {
-                console.log(checkbox);
                 checkbox.checked = true;
                 selected.push(checkbox.value);
             });
@@ -80,21 +82,8 @@ if (checkboxAll) {
 }
 
 
-function editHTML() {
-    selectHTML.innerText = selected.length;
-}
 
-
-function sendRequest(resource) {
-    if (selected.length > 0) {
-        form.action = `/dashboard/${resource}/${selected}`;
-        console.log(form.action);
-        form.submit();
-    }
-}
-
-
-
+// ==== SELECT-PAGE FORM =====
 var pageForm = document.getElementById('pageForm');
 var pageInput = document.getElementById('pageInput');
 
@@ -105,26 +94,17 @@ function pageFormSubmit(resource) {
 
 
 
-// document.getElementById('checkbox-' + {{ $event->id }}).click(); this.classList.toggle('selected');
 
 
-// let rows = document.querySelectorAll('.tr');
 
-// rows.forEach(row => row.addEventListener('click', function(event) {
+// ===== SOME EXTRA FUNCTIONS =====
+function editHTML() {
+    selectHTML.innerText = selected.length;
+}
 
-// }));
-
-
-// ==== LINK ACTIVE ====
-// const linkColor = document.querySelectorAll('.nav__link');
-
-// function colorLink() {
-//     if(linkColor) {
-//         linkColor.forEach(l => l.classList.remove('active'));
-//         this.classList.add('active');
-//     }
-// }
-
-// linkColor.forEach(l => l.addEventListener('click', colorLink));
-
-
+function sendRequest(resource) {
+    if (selected.length > 0) {
+        form.action = `/dashboard/${resource}/${selected}`;
+        form.submit();
+    }
+}

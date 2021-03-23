@@ -1,16 +1,22 @@
 @extends('layouts.backend.index')
 
 @section('unique-styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/backend/content/events/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/backend/events/index.css') }}">
 @endsection
 
 @section('content')
-
+    <div class="flash-message">
+        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+            @if (Session::has('alert-' . $msg))
+                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}</p>
+            @endif
+        @endforeach
+    </div>
     <div class="resource">
         <div class="resource__header">
             <div class="resource__left">
                 <div class="resource__title">
-                    <span class="las la-calendar-day"></span>
+                    <span class="las la-user"></span>
                     <h1>@lang('dashboard.users.title')</h1>
                 </div>
                 <div class="selected-count" id="selected-count">
@@ -35,7 +41,8 @@
                 </div>
                 <form class="resource__search" method="GET">
                     <input type="search" name="search" id="search" class="resource__search-input" required
-                        placeholder="@lang('dashboard.users.search.placeholder')">
+                        placeholder="@lang('dashboard.users.search.placeholder')"
+                        value="{{ app('request')->input('search') }}">
                     <button type="submit" class="las la-search resource__search-btn"></button>
                 </form>
 
@@ -93,7 +100,8 @@
                 {{ $users->withQueryString()->onEachSide(1)->links() }}
                 <div class="page-input">
                     <form onsubmit="pageFormSubmit('users')" method="GET" id="pageForm">
-                        <input type="text" placeholder="@lang('dashboard.users.page')" name="page" id="pageInput" autocomplete="off">
+                        <input type="text" placeholder="@lang('dashboard.users.page')" name="page" id="pageInput"
+                            autocomplete="off">
                         <input type="submit" value="" style="display: none">
                     </form>
                 </div>

@@ -1,8 +1,13 @@
 @extends('layouts.auth.index')
 
-@section('page-styles')
-    <link rel="stylesheet" href="{{asset('assets/css/auth/login.css')}}">
+@section('seo')
+    <title>Login · Grüne Schule</title>
+    <meta hid="description" name="description" content="This is the login page">
+@endsection
 
+@section('page-styles')
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/auth/login.css') }}"> --}}
+    <link rel="stylesheet" href="/assets/css/auth/login/styles.css">
 @endsection
 
 @section('content')
@@ -12,7 +17,7 @@
             <div class="login__row">
                 <div class="login__card">
                     <div class="login__image">
-                        <img src="{{ asset('assets/img/verified.svg')}}" alt="">
+                        <img src="{{ asset('assets/img/verified.svg') }}" alt="">
                     </div>
                     <form action="{{ route('login') }}" method="POST" class="login__form">
                         @csrf
@@ -21,25 +26,27 @@
                             @lang('login.title')
                         </h1>
                         <div class="login__email">
-                            <input type="email" class="@error('email') input__invalid @enderror" name="email" id="email" placeholder="Email address ..."  value="{{old('email')}}" required>
-                            @error('email') 
+                            <input type="email" class="@error('email') input__invalid @enderror" name="email" id="email"
+                                placeholder="@lang('login.email')" value="{{ old('email') }}" required>
+                            @error('email')
                                 <span class="login__error" role="alert">
-                                    {{$message}}
+                                    {{ $message }}
                                 </span>
                             @enderror
                         </div>
                         <div class="login__password">
-                            <input type="password" class="@error('password') input__invalid @enderror" name="password" id="password" placeholder="Password ..." required>
-                            @error('password') 
+                            <input type="password" class="@error('password') input__invalid @enderror" name="password"
+                                id="password" placeholder="@lang('login.password')" required>
+                            @error('password')
                                 <span class="login__error" role="alert">
-                                    {{$message}}
+                                    {{ $message }}
                                 </span>
                             @enderror
                         </div>
                         <div class="login__links">
-                            Get back to <a href="/">home page</a>
+                            @lang('login.redirect-to-home')
                         </div>
-                        <input type="submit" value="Let's go" class="login__submit">
+                        <input type="submit" value="@lang('login.button')" class="login__submit">
                     </form>
                 </div>
             </div>

@@ -1,14 +1,14 @@
 @extends('layouts.frontend.index')
 
 @section('seo')
-    <title>Grüne Schule · Tasckent, Usbekistan</title>
-    <meta hid="description" name="description" content="This is a eco-friendly project called Grüne Schule">
+    <title>Grüne Schule · Taschkent, Usbekistan</title>
+    <meta hid="description" name="description" content="This is an eco-friendly project called Grüne Schule">
 @endsection
+
 @section('page-styles')
-    <link rel="stylesheet" href="/assets/css/frontend/content/hero.css">
-    <link rel="stylesheet" href="/assets/css/frontend/content/who.css">
-    <link rel="stylesheet" href="/assets/css/frontend/content/last-events.css">
+    <link rel="stylesheet" href="/assets/css/frontend/home/home.css">
 @endsection
+
 @section('content')
     <section class="hero" id="hero">
         <div class="hero__wrapper">
@@ -17,13 +17,10 @@
                     <div class="hero__body">
                         <h1 style="display: none;">Grüne Schule</h1>
                         <h2 class="hero__title">
-                            {{-- Hey, this is a project called <span>Grune Schule</span> --}}
                             @lang('hero.title')
                         </h2>
                         <p class="hero__text">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione numquam odit
-                            provident at velit repudiandae quos neque commodi sunt dolore deleniti aut eligendi
-                            nostrum natus ad, laboriosam suscipit dolorum unde.
+                            @lang('hero.description')
                         </p>
                         <a href="#who" class="hero__button">
                             {{-- Okay, let's go --}}
@@ -53,22 +50,12 @@
                     </div>
                     <div class="who__body">
                         <h2 class="who__title title">
-                            {{-- Who are we? --}}
                             @lang('who.title')
                         </h2>
                         <p class="who__text">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim iure, tempore natus
-                            ipsa
-                            hic vitae quos sapiente? Temporibus quo eligendi vel. Quidem cumque nihil qui quis
-                            odio
-                            magnam accusamus voluptates!
-                            Illum, soluta sint. Consectetur, illum aliquam. Voluptatem alias natus totam magnam
-                            itaque tempora odit nemo velit odio, inventore voluptas autem est? Porro magnam,
-                            itaque
-                            nobis numquam alias doloribus tempora ullam!
+                            @lang('who.description')
                         </p>
                         <a href="#last-events" class="who__button">
-                            {{-- Next --}}
                             @lang('who.button')
                         </a>
                     </div>
@@ -78,7 +65,6 @@
         <section class="achvs">
             <div class="mini-container">
                 <h2 class="achvs__title title">
-                    {{-- Our achievements --}}
                     @lang('achvs.title')
                 </h2>
                 <div class="achvs__row">
@@ -164,16 +150,16 @@
                             <div class="last-event__wrapper">
                                 <div class="last-event">
                                     <div class="last-event__image">
-                                        <img src="{{$event->image}}" alt="">
+                                        <img src="{{ $event->image }}" alt="">
                                     </div>
                                     <div class="last-event__body">
                                         <div class="last-event__title">
-                                            {{$event->title}}
+                                            {{ $event->title }}
                                         </div>
                                         <div class="last-event__details">
                                             <div class="last-event__date">
                                                 <img src="/assets/img/icons/clock.svg" alt="clock">
-                                                {{$event->created_at->format('Y-m-d')}}
+                                                {{ $event->created_at->format('Y-m-d') }}
                                             </div>
                                             <span>|</span>
                                             <div class="last-event__author">
@@ -182,13 +168,13 @@
                                             </div>
                                             <div class="last-event__comments">
                                                 <img src="/assets/img/icons/speech-bubble.svg" alt="comments">
-                                                0
+                                                <span>{{ $event->comments->count() }}</span>
                                             </div>
                                         </div>
                                         <p class="last-event__description">
-                                            {{$event->description}}
+                                            {{ $event->description }}
                                         </p>
-                                        <a href="/events/{{$event->id}}" class="last-event__button">
+                                        <a href="/events/{{ $event->id }}" class="last-event__button">
                                             @lang('latest-events.button')
                                         </a>
                                     </div>

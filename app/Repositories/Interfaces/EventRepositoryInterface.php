@@ -4,13 +4,13 @@ namespace App\Repositories\Interfaces;
 
 interface EventRepositoryInterface
 {
-    public function all($query = null);
+    public function all($search = null);
 
-    public function getById($eventId);
+    public function getById($event);
 
-    public function update($validatedInput, $eventId);
+    public function update($input, $event);
 
-    public function create($validatedInput);
+    public function create($input);
 
     public function delete($eventId);
 }

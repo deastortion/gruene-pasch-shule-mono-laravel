@@ -11,7 +11,6 @@
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     {{-- CSS --}}
-    <link rel="stylesheet" href="{{ asset('assets/css/backend/main.css') }}">
     @yield('unique-styles')
 </head>
 
@@ -35,6 +34,7 @@
 
     {{-- Script for sidebar and header --}}
     <script src="{{ asset('assets/js/admin.js') }}"></script>
+    @yield('js')
 </body>
 
 </html>

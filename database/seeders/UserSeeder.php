@@ -24,8 +24,10 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'is_admin' => 1,
             'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
-        User::factory()->times(100)->create();
+        // User::factory()->times(100)->create();
     }
 }

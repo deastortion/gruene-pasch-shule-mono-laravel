@@ -1,0 +1,14 @@
+{
+    "/assets/css/backend/home/index.css": "/assets/css/backend/home/index.css",
+    "/assets/css/backend/events/show.css": "/assets/css/backend/events/show.css",
+    "/assets/css/backend/events/create.css": "/assets/css/backend/events/create.css",
+    "/assets/css/backend/events/index.css": "/assets/css/backend/events/index.css",
+    "/assets/css/auth/register/styles.css": "/assets/css/auth/register/styles.css",
+    "/assets/css/auth/login/styles.css": "/assets/css/auth/login/styles.css",
+    "/assets/css/frontend/events/show.css": "/assets/css/frontend/events/show.css",
+    "/assets/css/frontend/events/index.css": "/assets/css/frontend/events/index.css",
+    "/assets/css/frontend/home/index.css": "/assets/css/frontend/home/index.css",
+    "/assets/css/frontend/profile.css": "/assets/css/frontend/profile.css",
+    "/assets/css/backend/users/show.css": "/assets/css/backend/users/show.css",
+    "/assets/css/backend/users/index.css": "/assets/css/backend/users/index.css"
+}

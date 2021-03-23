@@ -1,7 +1,7 @@
 @extends('layouts.backend.index')
 
 @section('unique-styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/backend/content/stats.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/backend/home/index.css') }}">
 @endsection
 
 @section('content')
@@ -36,39 +36,21 @@
                 </div>
             </div>
         @endif
-        @if ($eventsCount)
+        @if ($commentsCount)
             <div class="card">
                 <div class="card__info">
                     <h2 class="card__number">
-                        {{ $eventsCount }}
+                        {{ $commentsCount }}
                     </h2>
                     <small class="card__name">
-                        @lang('dashboard.home.events')
+                        @lang('dashboard.home.comments')
                     </small>
                 </div>
                 <div class="card__icon">
-                    <span class="las la-clipboard-list"></span>
+                    <span class="las la-comment"></span>
                 </div>
             </div>
         @endif
-        @if ($eventsCount)
-            <div class="card">
-                <div class="card__info">
-                    <h2 class="card__number">
-                        {{ $eventsCount }}
-                    </h2>
-                    <small class="card__name">
-                        @lang('dashboard.home.events')
-                    </small>
-                </div>
-                <div class="card__icon">
-                    <span class="las la-clipboard-list"></span>
-                </div>
-            </div>
-        @endif
-
-
-
     </div>
 
     <div class="recent">
@@ -114,7 +96,7 @@
                         <a href="/dashboard/users/{{ $user->id }}">
                             <div class="user">
                                 <div class="user__image">
-                                    <img src="/assets/img/profile.jpg" alt="">
+                                    <img src="/assets/img/user.png" alt="">
                                 </div>
                                 <div class="user__body">
                                     <div class="user__name">

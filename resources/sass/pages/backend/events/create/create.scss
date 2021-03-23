@@ -1,0 +1,80 @@
+@import '../../main.scss';
+
+.card {
+    background-color: white;
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+}
+
+.card__header {
+    padding: 1rem;
+    color: rgb(54, 58, 56);
+    border-bottom: 1px solid rgb(225, 225, 225);
+}
+.card__body {
+    padding: 1rem;
+}
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: var(--text-grey);
+}
+
+input, textarea {
+    border-radius: 5px;
+    background-color: rgb(245, 245, 245);
+    padding: 1rem;
+    color: var(--text-grey);
+    border: 1px solid rgb(225, 224, 224);
+    resize: none;
+}
+
+input[type=submit] {
+    border: none;
+    display: inline-block;
+    width: fit-content;
+    padding: .5rem 1rem;
+    background-color: var(--first-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data {
+    display: flex;
+    font-size: 0.9rem;
+    color: var(--text-grey);
+
+}
+.data .data__item {
+    margin-left: 1rem;
+}
+
+.is-invalid {
+    border: 1px solid rgba(255, 0, 0, 0.6);
+}
+.error {
+    padding: .5rem 0;
+    color: rgba(255, 0, 0, 0.6);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+
+.input img {
+    max-width: 100%;
+}
+

@@ -4,7 +4,7 @@ return [
     'home' => [
         'users' => 'Пользователей',
         'events' => 'Мероприятий',
-
+        'comments' => 'Комментариев',
         'latest-events' => 'Последние мероприятия',
         'new-users' => 'Новые пользователи',
 
@@ -31,6 +31,25 @@ return [
         ],
         'page' => 'Страница',
 
+    ],
+
+    'users' => [
+        'title' => 'Пользователи',
+        'selected' => 'Выбрано',
+        'create-button' => 'Создать',
+        'delete-button' => 'Удалить',
+
+        'search' => [
+            'placeholder' => 'Поиск ...'
+        ],
+
+        'table-headers' => [
+            'name' => 'Имя', 
+            'email' => 'Почта',
+            'created-at' => 'Дата регистрации',
+            'actions' => 'Действия'
+        ],
+        'page' => 'Страница',
     ],
 
     'sidebar' => [

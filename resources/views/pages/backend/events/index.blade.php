@@ -1,11 +1,25 @@
 @extends('layouts.backend.index')
 
 @section('unique-styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/backend/content/events/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/backend/events/index.css') }}">
+    <style>
+        .td__description, .td__title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+    </style>
 @endsection
 
 @section('content')
-
+    <div class="flash-message">
+        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+            @if (Session::has('alert-' . $msg))
+                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}</p>
+            @endif
+        @endforeach
+    </div>
     <div class="resource">
         <div class="resource__header">
             <div class="resource__left">
@@ -35,7 +49,8 @@
                 </div>
                 <form class="resource__search" method="GET">
                     <input type="search" name="search" id="search" class="resource__search-input" required
-                        placeholder="@lang('dashboard.events.search.placeholder')">
+                        placeholder="@lang('dashboard.events.search.placeholder')"
+                        value="{{ app('request')->input('search') }}">
                     <button type="submit" class="las la-search resource__search-btn"></button>
                 </form>
 
@@ -93,7 +108,8 @@
                 {{ $events->withQueryString()->onEachSide(1)->links() }}
                 <div class="page-input">
                     <form onsubmit="pageFormSubmit('events')" method="GET" id="pageForm">
-                        <input type="text" placeholder="@lang('dashboard.events.page')" name="page" id="pageInput" autocomplete="off">
+                        <input type="text" placeholder="@lang('dashboard.events.page')" name="page" id="pageInput"
+                            autocomplete="off">
                         <input type="submit" value="" style="display: none">
                     </form>
                 </div>

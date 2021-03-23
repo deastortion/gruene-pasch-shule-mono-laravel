@@ -1,0 +1,26 @@
+.card {
+  box-shadow: var(--shadow);
+  border-radius: 5px;
+  background-color: white;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.card__body {
+  padding: 1rem;
+}
+
+.user__image {
+  flex: 0 0 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user__image img {
+  max-width: 100%;
+}

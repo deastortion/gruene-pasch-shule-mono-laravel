@@ -4,14 +4,14 @@ return [
     'home' => [
         'users' => 'Users',
         'events' => 'Events',
-
+        'comments' => 'Comments',
         'latest-events' => 'Latest events',
         'new-users' => 'New users',
 
         'view-all' => 'View all',
 
     ],
-    
+
     'events' => [
         'title' => 'Events',
         'selected' => 'Selected',
@@ -43,9 +43,27 @@ return [
         ],
 
         'table-headers' => [
-            'name' => 'Name', 
+            'name' => 'Name',
             'email' => 'E-mail',
             'created-at' => 'Registered at',
+            'actions' => 'Actions'
+        ],
+        'page' => 'Page',
+    ],
+
+    'comments' => [
+        'title' => 'Comments',
+        'selected' => 'Selected',
+        'delete-button' => 'Delete',
+
+        'search' => [
+            'placeholder' => 'Search box ...'
+        ],
+
+        'table-headers' => [
+            'name' => 'Name',
+            'content' => 'Content',
+            'created-at' => 'Created at',
             'actions' => 'Actions'
         ],
         'page' => 'Page',
@@ -55,6 +73,7 @@ return [
         'dashboard' => 'Dashboard',
         'events' => 'Events',
         'users' => 'Users',
+        'comments' => 'Comments',
         'logout' => 'Logout',
     ]
 ];
