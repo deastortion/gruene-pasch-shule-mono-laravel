@@ -17,17 +17,12 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        // if (!auth()->check() || (!$request->expectsJson() && !auth()->user()->is_admin)) {
-        //     return redirect()->back();
-        // }
 
-        // return $next($request);
-
-        if(Auth::user() && Auth::user()->is_admin) {
+        if (Auth::user() && Auth::user()->is_admin) {
             return $next($request);
         }
 
-        abort(404);
-        // return redirect()->back();
+        // abort(404);
+        abort(403, 'Unauthorizied action');
     }
 }

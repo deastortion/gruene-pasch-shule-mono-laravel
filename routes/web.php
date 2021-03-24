@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class);
 
 // Route to change the website's language
-Route::get('/languages/change', LanguageController::class);
+Route::put('/languages/change', LanguageController::class);
 
 // Profile
 Route::get('/profile', [ProfileController::class, 'edit']);

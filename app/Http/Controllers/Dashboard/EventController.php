@@ -50,7 +50,6 @@ class EventController extends Controller
      */
     public function store(EventCreateRequest $request)
     {
-        // return $validatedRequest;
         $this->repository->create($request);
 
         $request->session()->now('alert-success', 'Successfully created an event!');
@@ -108,5 +107,6 @@ class EventController extends Controller
         $this->repository->delete($id);
 
         return back();
+        // return redirect('/dashboard/events');
     }
 }
