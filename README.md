@@ -10,7 +10,6 @@
 <h4> Notice </h4>
 <p> 
     Every time you deploy your application please make sure to clean the storage. Here is a helpful command for you:
-    
 </p>
 <code> php artisan storage:clear </code>
   
