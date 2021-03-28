@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,10 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-// Artisan::command('fuck', function () {
-//     $this->comment('asdasd');
-// })->purpose('Displays some shit');
+
+
+// Custom storage-cleaning artisan command
+Artisan::command('storage:clear', function () {
+    Storage::deleteDirectory('/public/events');
+    $this->comment('The storage has been successfully cleaned');
+})->purpose('Clear the storage of the application');

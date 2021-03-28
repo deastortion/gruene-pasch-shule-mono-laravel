@@ -12,7 +12,9 @@
 
                 </div>
                 <div class="languages">
-                    <form action="/languages/change" method="GET" id="language">
+                    <form action="/languages/change" method="POST" id="language">
+                        @csrf
+                        @method('PUT')
                         <input type="submit" id="ru" name="lang" value="ru"
                             class="footer__lang {{ session('locale') == 'ru' ? 'selected' : '' }}">
                         <input type="submit" id="en" name="lang" value="en"

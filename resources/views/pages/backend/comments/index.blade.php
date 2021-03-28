@@ -10,6 +10,10 @@
             max-width: 200px;
         }
 
+        .actions {
+            justify-content: flex-start;
+        }
+
     </style>
 @endsection
 
@@ -85,8 +89,8 @@
                                     <div class="actions">
                                         <a href="{{ '/dashboard/comments/' . $comment->id }}"
                                             class="actions__action las la-eye"></a>
-                                        <a href="{{ '/dashboard/comments/' . $comment->id . '/edit' }}"
-                                            class="actions__action las la-pen"></a>
+                                        {{-- <a href="{{ '/dashboard/comments/' . $comment->id . '/edit' }}"
+                                            class="actions__action las la-pen"></a> --}}
                                         <form action="{{ '/dashboard/comments/' . $comment->id }}" method="POST">
                                             @csrf
                                             @method('DELETE')

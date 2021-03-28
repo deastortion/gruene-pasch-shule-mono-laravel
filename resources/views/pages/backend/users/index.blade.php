@@ -2,6 +2,12 @@
 
 @section('unique-styles')
     <link rel="stylesheet" href="{{ asset('assets/css/backend/events/index.css') }}">
+    <style>
+        .actions {
+            justify-content: flex-start;
+        }
+
+    </style>
 @endsection
 
 @section('content')
@@ -79,8 +85,8 @@
                                     <div class="actions">
                                         <a href="{{ '/dashboard/users/' . $user->id }}"
                                             class="actions__action las la-eye"></a>
-                                        <a href="{{ '/dashboard/users/' . $user->id . '/edit' }}"
-                                            class="actions__action las la-pen"></a>
+                                        {{-- <a href="{{ '/dashboard/users/' . $user->id . '/edit' }}"
+                                            class="actions__action las la-pen"></a> --}}
                                         <form action="{{ '/dashboard/users/' . $user->id }}" method="POST">
                                             @csrf
                                             @method('DELETE')

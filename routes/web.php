@@ -63,3 +63,7 @@ Route::prefix('dashboard')->middleware(['admin'])->group(function () {
 
 // A special route to redirect user after signin in
 Route::get('/redirect-after-login', RedirectController::class);
+
+
+// Developer Routes
+Route::view('/developer', 'pages.developer');

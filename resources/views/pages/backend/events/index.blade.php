@@ -9,6 +9,9 @@
             text-overflow: ellipsis;
             max-width: 200px;
         }
+        .actions {
+            justify-content: flex-start;
+        }
     </style>
 @endsection
 
