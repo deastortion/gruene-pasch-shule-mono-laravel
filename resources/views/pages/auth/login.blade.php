@@ -46,6 +46,9 @@
                         <div class="login__links">
                             @lang('login.redirect-to-home')
                         </div>
+                        <div class="login__links" style="margin-top: -15px;">
+                            <a href="{{ route('password.request') }}">Forgotten your password? Reset it here</a>
+                        </div>
                         <input type="submit" value="@lang('login.button')" class="login__submit">
                     </form>
                 </div>
